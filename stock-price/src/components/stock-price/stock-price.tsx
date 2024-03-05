@@ -82,10 +82,8 @@ export class StockPrice {
   }
 
   fetchStockPrice(stockSymbol: string) {
-    console.log(stockSymbol, AV_API_KEY);
     this.loading = true;
-    // fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${AV_API_KEY}`)
-    fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo`)
+    fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${AV_API_KEY}`)
       .then(res => {
         if (res.status !== 200) {
           throw new Error('Invalid');

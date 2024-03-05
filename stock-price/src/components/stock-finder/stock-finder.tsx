@@ -18,9 +18,7 @@ export class StockFinder {
     event.preventDefault();
     this.loading = true;
     const stockName = this.stockNameInput.value;
-    console.log(stockName, AV_API_KEY);
-    // fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${stockName}&apikey=${AV_API_KEY}`)
-    fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=demo`)
+    fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${stockName}&apikey=${AV_API_KEY}`)
       .then(res => res.json())
       .then(parsedRes => {
         this.searchResults = parsedRes['bestMatches'].map(match => {
